@@ -12,22 +12,34 @@ class Program
         while (true)
         {
             seconds++;
-            Console.WriteLine($"Я сижу афк {hours} часов {minutes} минут {seconds} секунд");
-            Thread.Sleep(1000);
+            Thread.Sleep (0);
+            if (minutes == 0)
+            {
+                Console.WriteLine($"Я сижу афк {seconds} секунд");
+            }
+            else if (hours == 0){
+                Console.WriteLine($"Я сижу афк {minutes} минут {seconds} секунд");
+            }
 
-            if (seconds >= 60)
+            else
+            {
+                Console.WriteLine($"Я сижу афк {hours} часов {minutes} минут {seconds} секунд");
+            }
+            
+
+            if (seconds == 60)
             {
                 minutes++;
                 seconds = 0;
                 Console.WriteLine($"Прошло: {minutes} минут");
             }
-
-            if (minutes >= 60)
+            if (minutes == 60)
             {
                 hours++;
                 minutes = 0;
                 Console.WriteLine($"Прошло: {hours} часов");
             }
+            
         }
     }
 }
